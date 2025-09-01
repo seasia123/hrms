@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "176081113097",
+    "project_id": "heliosconnect-a2725",
+    "storage_bucket": "heliosconnect-a2725.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176081113097:android:1079a9cd82331187a468d8",
+        "android_client_info": {
+          "package_name": "com.heliosadvisory.helioshrm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzxh3CB532aWo-cAok9kJK70njUbalqZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
