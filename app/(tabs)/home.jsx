@@ -6,7 +6,7 @@ import NewHiresCard from '../../components/HomeScreen/NewHires'
 import LeaveReportCard from '../../components/HomeScreen/LeaveReportCard'
 import UpcomingHolidaysCard from '../../components/HomeScreen/UpcomingHolidaysCard'
 
-const Home = () => {
+export default function Home() {
     const [refreshing, setRefreshing] = useState(false);
     const checkInOutCardRef = useRef(null);
     const birthdayCardRef = useRef(null);
@@ -52,5 +52,3 @@ const Home = () => {
         </ScrollView>
     )
 }
-
-export default Home

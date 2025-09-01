@@ -29,7 +29,6 @@ export default function Approvals({ route }) {
   const [index, setIndex] = React.useState(0);
   const { colorScheme } = useColorScheme();
 
-
   const renderTabBar = props => (
     <StyledTabBar
       {...props}
@@ -66,7 +65,6 @@ export default function Approvals({ route }) {
       initialLayout={{ width: Dimensions.get('window').width }}
       renderTabBar={renderTabBar}
       lazy={true}
-      // lazyPreloadDistance={0}
     />
   );
 }

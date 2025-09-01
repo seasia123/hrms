@@ -103,7 +103,7 @@ const ServiceItem = ({ title, icon, href, isGrid, disabled }) => {
   );
 };
 
-const Services = () => {
+export default function Services() {
   const [isListView, setIsListView] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -182,6 +182,4 @@ const Services = () => {
       </View>
     </GestureHandlerRootView>
   );
-};
-
-export default Services;
+}

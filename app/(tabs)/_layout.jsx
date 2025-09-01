@@ -1,16 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons, MaterialCommunityIcons, Feather, FontAwesome, AntDesign } from '@expo/vector-icons';
 import { Image, Text, TouchableOpacity, View, Modal, Button, Pressable, FlatList, Animated, Easing, SafeAreaView } from "react-native";
 import { useAuthContext } from "../../context/AuthProvider";
 import { Dropdown } from 'react-native-element-dropdown';
 import { useColorScheme } from "nativewind";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as SecureStore from 'expo-secure-store';
+import { Tabs } from 'expo-router';
 import Home from "./home";
 import Approvals from './approvals';
 import Services from './services';
@@ -19,10 +15,6 @@ import { useState, useEffect, useRef } from "react";
 import useNetworkStatus from "../../hooks/useNetworkStatus";
 import Spinner from "../../components/OverlaySpinner";
 import moment from "moment";
-
-
-
-const Tabs = createBottomTabNavigator();
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
     const router = useRouter();
@@ -286,7 +278,7 @@ const TabLayout = () => {
     return (
         <>
             <Spinner visible={!isConnected} color={colorScheme === 'light' ? "black" : "white"} textContent="No active internet connection. Please connect to the internet." />
-            <Tabs.Navigator
+            <Tabs
                 initialRouteName="home"
                 tabBar={props => <CustomTabBar {...props} />}
                 screenOptions={({ route }) => ({
@@ -304,7 +296,6 @@ const TabLayout = () => {
             >
                 <Tabs.Screen
                     name="home"
-                    component={Home}
                     options={{
                         title: "Home",
                         tabBarIcon: ({ size, color }) => (
@@ -314,7 +305,6 @@ const TabLayout = () => {
                 />
                 <Tabs.Screen
                     name="services"
-                    component={Services}
                     options={{
                         title: "Services",
                         tabBarIcon: ({ size, color }) => (
@@ -328,12 +318,9 @@ const TabLayout = () => {
                         tabBarIcon: () => null,
                         tabBarLabel: () => null,
                     }}
-                >
-                    {() => <Plus />}
-                </Tabs.Screen>
+                />
                 <Tabs.Screen
                     name="approvals"
-                    component={Approvals}
                     initialParams={{ title: approvalTitle }}
                     options={{
                         title: "Approvals",
@@ -344,7 +331,6 @@ const TabLayout = () => {
                 />
                 <Tabs.Screen
                     name="more"
-                    component={More}
                     options={{
                         title: "More",
                         tabBarIcon: ({ size, color }) => (
@@ -352,7 +338,7 @@ const TabLayout = () => {
                         ),
                     }}
                 />
-            </Tabs.Navigator>
+            </Tabs>
         </>
     );
 };

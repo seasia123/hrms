@@ -14,7 +14,7 @@ const MenuItem = [
 const isDev = process.env.EXPO_PUBLIC_API_BASE_URL == "https://hrmdev.heliosadvisory.com/api"
 const isUat = process.env.EXPO_PUBLIC_API_BASE_URL == "https://hrmuat.heliosadvisory.com/api"
 
-const More = () => {
+export default function More() {
   const router = useRouter();
   const { colorScheme } = useColorScheme();
   const { logout } = useAuthContext();
@@ -27,7 +27,6 @@ const More = () => {
     } finally {
       setLoading(false);
       router.replace('/sign-in')
-      // Alert.alert("Success", "User signed out successfully");
     }
   };
 
@@ -49,7 +48,6 @@ const More = () => {
       { cancelable: false }
     );
   };
-
 
   const handlePress = (href) => {
     if (href === "logout") {
@@ -98,5 +96,3 @@ const More = () => {
     </ScrollView>
   );
 }
-
-export default More

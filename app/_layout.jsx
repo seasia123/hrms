@@ -6,10 +6,12 @@ import { StatusBar } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import * as SecureStore from 'expo-secure-store';
 import { useNotificationObserver } from '../hooks/useNotificationObserver';
+import { useFrameworkReady } from '../hooks/useFrameworkReady';
 
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
+    useFrameworkReady();
     const { colorScheme, toggleColorScheme } = useColorScheme();
     const [preferencesLoaded, setPreferencesLoaded] = useState(false);
     useNotificationObserver();
